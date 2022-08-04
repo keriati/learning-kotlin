@@ -1,5 +1,8 @@
 package com.kotlinplayground.basics
 
+import com.kotlinplayground.functions.courseName
+import com.kotlinplayground.functions.topLevelFunction
+
 fun main() {
     // Constants
     val name: String = "Attila" // inferred type
@@ -29,4 +32,9 @@ fun main() {
     """.trimIndent()
 
     println(multiLine1)
+
+    // importing top level function and variables
+    val num = topLevelFunction()
+
+    println("Num is $num course is $courseName")
 }
