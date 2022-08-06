@@ -15,6 +15,13 @@ class Student(name: String) : User(name) {
     // override variable
     override var isLoggedIn: Boolean = true
 
+    // Static methods and constants are in companion objects
+    companion object {
+        const val noOfCourses = 10
+
+        fun country() = "Korea"
+    }
+
     override fun login() {
         println("Inside student login")
         super.login()
@@ -27,6 +34,11 @@ fun main() {
     val student = Student("Alex")
     println("name is ${student.name}")
     student.login()
+
+    val country = Student.country()
+
+    println("Country is $country")
+    println("No of courses is ${Student.noOfCourses}")
 
     val instructor = Instructor("Attila")
     println("name is ${instructor.name}")
