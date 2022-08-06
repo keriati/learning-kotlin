@@ -4,8 +4,18 @@ package com.kotlinplayground.classes
 data class Course(
     val id: Int,
     val name: String,
-    val author: String
+    val author: String,
+    val courseCategory: CourseCategory = CourseCategory.DEVELOPMENT
 )
+
+
+// Enums have similar syntax to Java
+enum class CourseCategory {
+    DEVELOPMENT,
+    BUSINESS,
+    DESIGN,
+    MARKETING
+}
 
 fun main() {
     val course = Course(1,"Attila was here", "Attila")
