@@ -12,15 +12,36 @@ fun main() {
 
     val isDevelopment = { c: Course -> c.category == CourseCategory.DEVELOPEMENT }
     val isDesign = { c: Course -> c.category == CourseCategory.DESIGN }
-    exploreFilter(courseList, isDevelopment)
+//    exploreFilter(courseList, isDevelopment)
+//
+//    exploreMap(courseList, isDesign)
+//
+//    exploreFlatMap1()
+//
+//    val courses = exploreFlatMap2(courseList, KAFKA)
+//
+//    println("Courses is $courses")
 
-    exploreMap(courseList, isDesign)
+    exploreHashMap()
+}
 
-    exploreFlatMap1()
+fun exploreHashMap() {
+    val nameAgeMutableMap = mutableMapOf("Foo" to 33, "Bar" to 5)
 
-    val courses = exploreFlatMap2(courseList, KAFKA)
+    nameAgeMutableMap.forEach { (k, v) ->
+        println("Key as $k and the value is $v")
+    }
 
-    println("Courses is $courses")
+    val myValue = nameAgeMutableMap.getOrElse("Foo1") { "abc" }
+    println("My Value is $myValue")
+
+    println("Key present: ${nameAgeMutableMap.containsKey("abc")}")
+
+    nameAgeMutableMap.filterKeys { it.length > 2 }
+        .map { it.key.uppercase() }
+        .forEach{ println(it) }
+
+    println("max age is ${nameAgeMutableMap.maxByOrNull { it.value }}")
 }
 
 fun exploreFlatMap2(courseList: MutableList<Course>, kafka: String): List<String> {
