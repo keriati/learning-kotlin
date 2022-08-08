@@ -2,7 +2,6 @@ package com.kotlinplayground.collections
 
 import com.kotlinplayground.dataset.Course
 import com.kotlinplayground.dataset.CourseCategory
-import com.kotlinplayground.dataset.KAFKA
 import com.kotlinplayground.dataset.courseList
 
 fun main() {
@@ -22,7 +21,24 @@ fun main() {
 //
 //    println("Courses is $courses")
 
-    exploreHashMap()
+//    exploreHashMap()
+
+    collectionsNullability()
+}
+
+fun collectionsNullability() {
+    var list: MutableList<String>? = null
+
+    list = mutableListOf()
+    list.add("Foo")
+    list?.forEach {
+        println("Value is $it")
+    }
+
+    val list1: List<String?> = listOf("Foo", null, "Bar")
+    list1.forEach{
+        println("Value is ${it?.length ?: 0}")
+    }
 }
 
 fun exploreHashMap() {
