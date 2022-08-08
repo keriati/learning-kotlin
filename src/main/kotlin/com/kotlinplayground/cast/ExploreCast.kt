@@ -11,20 +11,21 @@ fun main() {
     castNumber(1.0)
 
     // not possible to cast -> throws exception
-    //castNumber(1)
+    castNumber(1)
 
     val myNumber = 1
     // type conversion has to be explicit
     val myNumberDouble = myNumber.toDouble()
 
     println(myNumberDouble)
-
 }
 
 fun castNumber(any: Any) {
     when (any) {
+        // as? -> only do it if possible, handling casting exception
         // in case of successful casting we get true
-        any as Double -> println("Value is double")
+        any as? Double -> println("Value is double")
+        any as? Int -> println("Value is Int")
     }
 }
 
