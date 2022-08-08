@@ -8,7 +8,16 @@ data class Movie(
 fun main() {
     var nameNullable: String? = null
 
-    println("Value is $nameNullable")
+//    if (nameNullable != null) {
+//        println("Value is ${nameNullable.length}")
+//    }
+
+    // safe operator is "?"
+    println("Value is ${nameNullable?.length}")
+
+    // Elvis operator for default value assignment
+    var length = nameNullable?.length ?: 0
+
 
     nameNullable = "Alex"
 
